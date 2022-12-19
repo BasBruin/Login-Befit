@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InterfaceLib
+namespace InterfaceLib.DTO_s
 {
-    internal interface IUser
+    public class UserDTO
     {
+
     }
 }
