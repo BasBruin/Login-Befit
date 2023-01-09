@@ -24,7 +24,7 @@ namespace Login.Controllers
             int? id = uc.FindByUsernameAndPassword(Username, Password);
             if (id == null)
             {
-                return null;
+                return id;
             }
             return id;
         }

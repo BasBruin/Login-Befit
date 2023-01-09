@@ -26,18 +26,21 @@ namespace DalMSSQL
         {
             connection.Open();
             SqlCommand command;
-            string sql = "SELECT * FROM User WHERE Username = @username";
+            string sql = "SELECT * FROM Gymmember WHERE Username = @username";
 
             command = new SqlCommand(sql, connection);
             command.Parameters.AddWithValue("@username", username);
             reader = command.ExecuteReader();
 
+            
+
             if (reader.Read())
             {
-                if (BCrypt.Net.BCrypt.EnhancedVerify(password, reader.GetString("Password")))
+                if (reader.GetString("Password") == password)
                 {
+                    int id = reader.GetInt32("Id");
                     connection.Close();
-                    return reader.GetInt32("Id");
+                    return id;
                 }
             }
             connection.Close();
