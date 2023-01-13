@@ -42,6 +42,7 @@ namespace DalMSSQL
                     connection.Close();
                     return id;
                 }
+                return null;
             }
             connection.Close();
             return null;
